@@ -45,6 +45,7 @@ public class GameLoop implements Runnable {
         while (running) {
             float time = System.currentTimeMillis();
             update(platform.getCharacter());
+            update(platform.getCharacter2());
             time = System.currentTimeMillis() - time;
             if (time < interval) {
                 try {

@@ -3,19 +3,18 @@ package se233.chapter4.model;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-//import org.apache.logging.log4j.LogManager;
-//import org.apache.logging.log4j.Logger;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import se233.chapter4.Launcher;
 import se233.chapter4.view.Platform;
 
 public class Character extends Pane {
-    Logger logger = LoggerFactory.getLogger(Character.class);
-
-//    public static final Logger logger = LogManager.getLogger(Character.class.getName());
-    public static final int CHARACTER_WIDTH = 32;
-    public static final int CHARACTER_HEIGHT = 64;
+//    Logger logger = LoggerFactory.getLogger(Character.class);
+    public static final Logger logger = LogManager.getLogger(Character.class.getName());
+    public int CHARACTER_WIDTH = 0;
+    public int CHARACTER_HEIGHT = 0;
     private Image characterImg;
     private AnimatedSprite imageView;
     private int x;
@@ -35,13 +34,17 @@ public class Character extends Pane {
     boolean canJump = false;
     boolean isJumping = false;
 
-    public Character(int x, int y, int offsetX, int offsetY, KeyCode leftKey, KeyCode rightKey, KeyCode upKey) {
+    public Character(int x, int y, int offsetX, int offsetY, KeyCode leftKey, KeyCode rightKey, KeyCode upKey, String characterPath , int width , int height, int cWidth , int cHeight,int xVelo , int yVelo) {
         this.x = x;
         this.y = y;
         this.setTranslateX(x);
         this.setTranslateY(y);
-        this.characterImg = new Image(Launcher.class.getResourceAsStream("assets/MarioSheet.png"));
-        this.imageView = new AnimatedSprite(characterImg, 4, 4, 1, offsetX, offsetY, 16, 32);
+        this.xMaxVelocity = xVelo;
+        this.yMaxVelocity = yVelo;
+        this.CHARACTER_HEIGHT = cHeight;
+        this.CHARACTER_WIDTH = cWidth;
+        this.characterImg = new Image(Launcher.class.getResourceAsStream(characterPath));
+        this.imageView = new AnimatedSprite(characterImg, 4, 4, 1, offsetX, offsetY, width, height);
         this.imageView.setFitWidth(CHARACTER_WIDTH);
         this.imageView.setFitHeight(CHARACTER_HEIGHT);
         this.leftKey = leftKey;

@@ -14,6 +14,8 @@ public class Platform extends Pane {
     public final static int GROUND = 300;
     private Image platformImg;
     private Character character;
+    //ex1
+    private Character character2;
     private Keys keys;
     public Platform() {
         keys = new Keys();
@@ -21,12 +23,17 @@ public class Platform extends Pane {
         ImageView backgroundImg = new ImageView(platformImg);
         backgroundImg.setFitHeight(HEIGHT);
         backgroundImg.setFitWidth(WIDTH);
-        character = new Character(30, 30, 0, 0, KeyCode.A, KeyCode.D, KeyCode.W);
-        getChildren().addAll(backgroundImg,character);
+        character = new Character(30, 30, 0, 0, KeyCode.A, KeyCode.D, KeyCode.W,"assets/MarioSheet.png",16,32,32,64,7,17);
+        character2 = new Character(50,50,0,0,KeyCode.LEFT,KeyCode.RIGHT, KeyCode.UP,"assets/MegaMan.png",563,442,68,68,10,20);
+        getChildren().addAll(backgroundImg,character,character2);
     }
 
     public Character getCharacter() {
         return character;
+    }
+
+    public Character getCharacter2() {
+        return character2;
     }
 
     public Keys getKeys() { return keys; }
