@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class CharacterTest { 
+public class CharacterTest {
     private Character floatingCharacter;
     private ArrayList<Character> characterListUnderTest;
     private Platform platformUnderTest;
