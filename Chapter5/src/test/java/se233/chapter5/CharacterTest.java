@@ -84,7 +84,7 @@ public class CharacterTest {
         assertTrue("View: Character is moving left", characterUnderTest.getX() < startX);
     }
 
-    // Exercise 1
+    // (1)
     @Test
     public void characterShouldMoveToTheRightAfterTheRightKeyIsPressed() throws
             IllegalAccessException, InvocationTargetException, NoSuchFieldException {
@@ -100,7 +100,7 @@ public class CharacterTest {
         assertTrue("View: Character is moving right", characterUnderTest.getX() > startX);
     }
 
-    // Exercise 2
+    // (2)
     @Test
     public void characterCanBeJumpIfCharacterIsBeingOnTheGroundAndUpperKeyIsPressed() throws
             IllegalAccessException, InvocationTargetException, NoSuchFieldException {
@@ -117,7 +117,7 @@ public class CharacterTest {
         assertEquals("View: Character is being on the ground", characterUnderTest.getY(), Platform.GROUND);
     }
 
-    // Exercise 3
+    // (2)
     @Test
     public void characterCannotBeJumpIfCharacterIsNotBeingOnTheGroundAndUpperKeyCannotPressed() throws
             IllegalAccessException, InvocationTargetException, NoSuchFieldException {
@@ -132,7 +132,7 @@ public class CharacterTest {
         assertTrue("View: Character is not being on the ground", characterUnderTest.getY() < Platform.GROUND);
     }
 
-    // Exercise 4
+    // (4)
     @Test
     public void characterCannotPassedIfCharacterIsReachingOnTheGameWall() throws
             IllegalAccessException, InvocationTargetException, NoSuchFieldException {
@@ -147,8 +147,7 @@ public class CharacterTest {
         assertTrue("View: Character is reaching the game wall", characterUnderTest.checkReachGameWallBool());
     }
 
-    // Exercise 5
-    // cr. https://stackoverflow.com/questions/15013913/checking-collision-of-shapes-with-javafx
+    // (5)
     @Test
     public void charactersCanCollidedAndThenKnockBack() throws
             IllegalAccessException, InvocationTargetException, NoSuchFieldException {
@@ -167,7 +166,7 @@ public class CharacterTest {
         assertTrue("View: Characters collide with each other", characterUnderTest1.getBoundsInParent().intersects(characterUnderTest2.getBoundsInParent()));
     }
 
-    // Exercise 6
+    // (6)
     @Test
     public void characterStompedToEachOtherThenGetScoreAndRespawn() throws
             IllegalAccessException, InvocationTargetException, NoSuchFieldException {
